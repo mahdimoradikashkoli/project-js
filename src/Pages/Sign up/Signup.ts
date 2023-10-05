@@ -31,9 +31,11 @@ export const signUP = () => {
             parsedExistUser.push(signUPForm);
             const jsonExistUser = JSON.stringify(parsedExistUser)
             localStorage.setItem("user" , jsonExistUser)
+            location.assign("/Signin")
         }else{
             const userToJson = JSON.stringify([signUPForm])
             localStorage.setItem("user" , userToJson)
+            location.assign("/Signin")
         }
     }
     return Box({
