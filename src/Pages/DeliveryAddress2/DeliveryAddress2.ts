@@ -88,7 +88,7 @@ export const deliveryAdress2 = () => {
                 },
                 image1:"/image2/home (1).png",
                 image2:"/image/bell.png",
-                image3:"/image2/shopping-cart (1).png",
+                image3:"/image2/shopping-cart (2).png",
                 image4:"/image/settings.png"
     
             })

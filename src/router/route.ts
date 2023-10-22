@@ -1,4 +1,4 @@
-import { cartPage, deliveryAddress, deliveryAdress2, home,searchPage ,searchResult,signIn,signUP,singleProduct} from "../Pages";
+import { cartPage, deliveryAddress, deliveryAdress2, home,order,orderReport,searchPage ,searchResult,signIn,signUP,singleProduct} from "../Pages";
 
 export function route(){
     switch (location.pathname) {
@@ -18,6 +18,10 @@ export function route(){
             return deliveryAddress()
         case "/DeliveryAddress2":
             return deliveryAdress2()
+        case "/Order":
+            return order()
+        case "/OrderReport" :
+            return orderReport()
         default:
             return home()
     }
