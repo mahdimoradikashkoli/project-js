@@ -1,5 +1,5 @@
-import { search } from "../../Components/SearchBox"
-import { product } from "../../Components/product"
+import { search,product } from "../../Components"
+import { heder } from "../../Components/Header"
 import { Box } from "../../lib"
 
 export const searchResult = () => {
@@ -72,57 +72,14 @@ export const searchResult = () => {
             product({image:"/image/Rectangle 15.png", name:"Mango" , price:"$998 US"}),
             product({image:"/image/Rectangle 16.png", name:"Guava" , price:"$998 US"}),
             product({image:"/image/Rectangle 17.png", name:"Dragon Fruit" , price:"$998 US"})]
-        }),Box({
-            element:"Div",
+        }),heder({
             attr:{
                 class:"flex relative -top-4 bg-white  justify-between border border-t-slate-300"
             },
-            children:[Box({
-                element:"Div",
-                attr:{
-                    class:"flex justify-between gap-9 items-center "
-                },
-                children:[Box({
-                    element:"img",
-                    attr:{
-                        src:"/image/home.png"
-                    }
-                }),
-                Box({
-                    element:"img",
-                    attr:{
-                        src:"/image/bell.png"
-                    }
-                }),
-                ]
-            }),
-            Box({
-                element:"img",
-                attr:{
-                    src:'/image/mid button.png',
-                    class:"relative -top-5 "
-                }
-            }),
-            Box({
-                element:"Div",
-                attr:{
-                    class:'flex justify-between gap-9 items-center'
-                },
-                children:[Box({
-                    element:"img",
-                    attr:{
-                        src:"/image/shopping-cart.png"
-                    }
-                }),
-                Box({
-                    element:"img",
-                    attr:{
-                        src:"/image/settings.png"
-                    }
-                }),
-                ]
-            })]
-            
+            image1:"/image/home.png",
+            image2:"/image/bell.png",
+            image3:"/image/shopping-cart.png",
+            image4:"/image/settings.png"
         })]
     })
 

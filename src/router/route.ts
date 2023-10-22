@@ -1,8 +1,5 @@
-import { home } from "../Pages/Home";
-import { searchPage } from "../Pages/Search";
-import { searchResult } from "../Pages/SearchResult";
-import { signIn } from "../Pages/Sign in/Signin";
-import { signUP } from "../Pages/Sign up";
+import { home,searchPage ,searchResult,signIn,signUP,singleProduct} from "../Pages";
+import { cartPage } from "../Pages/CartPage";
 
 export function route(){
     switch (location.pathname) {
@@ -14,7 +11,10 @@ export function route(){
             return searchPage()
         case "/Searchresult" :
             return searchResult()
-    
+        case "/Singleproduct" :
+            return singleProduct()
+        case "/CartPage" :
+            return cartPage()   
         default:
             return home()
     }
