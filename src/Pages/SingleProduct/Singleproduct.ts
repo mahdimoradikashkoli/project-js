@@ -3,12 +3,21 @@ import { navigation } from "../../Components/Navigation"
 import { Box } from "../../lib"
 
 export const singleProduct = () => {
+    var currentNumber=0
+    console.log(currentNumber)
+    function updateNumberDisplay(){
+        window.onload=()=>{
+            let amount = document.getElementById("number")!.innerHTML=currentNumber.toString()
+            console.log(amount)
+        }
+    }
+    
     return Box({
         element:"Div",
         attr:{
             class:"p-8"
         },
-        children:[navigation({children:"Shop",attr:{class:"flex items-center justify-between"}}),
+        children:[navigation({children:"Shop",attr:{class:"flex items-center justify-between"},href:"/Home"}),
         Box({
             element:"Div",
             attr:{
@@ -33,24 +42,44 @@ export const singleProduct = () => {
                     class:"text-lg text-orange-300 flex items-center bg-slate-200 rounded-xl px-2",
                 },
                 children:[Box({
-                    element:"img",
+                    element:"button",
                     attr:{
-                        class:"",
-                        src:"/image2/chevron-down (1).png",
+                        onClick:() => {
+                            currentNumber--
+                            console.log(currentNumber)
+                            updateNumberDisplay()
+                        }
                     },
+                    children:Box({
+                        element:"img",
+                        attr:{
+                            id:"image111",
+                            src:"/image2/chevron-down (1).png",
+                        },
+                    })
                 }),Box({
-                    element:"h1",
+                    element:"Div",
                     attr:{
+                        id:"number",
                         class:"text-lg text-yellow-500",
                     },
-                    children:"1kg"
+                    children:currentNumber
                 }),
                 Box({
-                    element:"img",
+                    element:"button",
                     attr:{
-                        class:"",
-                        src:"/image2/chevron-up (1).png",
+                        onClick:() =>{
+                            currentNumber++
+                            updateNumberDisplay
+                        }
                     },
+                    children:Box({
+                        element:"img",
+                        attr:{
+                            class:"",
+                            src:"/image2/chevron-up (1).png",
+                        },
+                    })
                 }),]
             }),
             Box({
@@ -61,7 +90,9 @@ export const singleProduct = () => {
                 children:"$998 US"
             })]
         }),
-        button({children:"Add to Cart"}),
+        button({children:"Add to Cart",onClick:()=>{
+            location.assign("/CartPage")
+        }}),
         heder({
             attr:{
                 class:" flex mt-8 bg-white  justify-between border border-t-slate-300"
@@ -74,6 +105,8 @@ export const singleProduct = () => {
         })
         ]
     })
+    
+    
 }
 
 //<Div class="mt-28 text-2xl font-medium text-base"

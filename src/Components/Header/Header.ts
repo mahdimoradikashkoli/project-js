@@ -18,17 +18,29 @@ export const heder = (props:propsHeader) =>{
                 class:"flex justify-between gap-9 items-center "
             },
             children:[Box({
-                element:"img",
+                element:"a",
                 attr:{
-                    src:props.image1
-                }
+                    href:"/Home"
+                },
+                children:Box({
+                    element:"img",
+                    attr:{
+                        src:props.image1
+                    }
+                }),
             }),
             Box({
-                element:"img",
+                element:"a",
                 attr:{
-                    src:props.image2
-                }
-            }),
+                    href:"/"
+                },
+                children:Box({
+                    element:"img",
+                    attr:{
+                        src:props.image2
+                    }
+                }),
+            })
             ]
         }),
         Box({
@@ -44,17 +56,29 @@ export const heder = (props:propsHeader) =>{
                 class:'flex justify-between gap-9 items-center'
             },
             children:[Box({
-                element:"img",
+                element:"a",
                 attr:{
-                    src:props.image3
-                }
+                    href:"/CartPage"
+                },
+                children:Box({
+                    element:"img",
+                    attr:{
+                        src:props.image3
+                    }
+                }),
             }),
             Box({
-                element:"img",
+                element:"a",
                 attr:{
-                    src:props.image4
-                }
-            }),
+                    href:"/Setting"
+                },
+                children:Box({
+                    element:"img",
+                    attr:{
+                        src:props.image4
+                    }
+                }),
+            })
             ]
         })]
         

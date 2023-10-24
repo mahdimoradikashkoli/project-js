@@ -8,11 +8,17 @@ export const product = (props:productType) => {
             class:"flex flex-col items-center w-36 h-40  shadow-2xl rounded-xl"
         },
         children:[Box({
-            element:"img",
+            element:"a",
             attr:{
-                class:"relative",
-                src:props.image
-            }
+                href:"/Singleproduct"
+            },
+            children:Box({
+                element:"img",
+                attr:{
+                    class:"relative",
+                    src:props.image
+                }
+            }),
         }),
         Box({
             element:"Div",

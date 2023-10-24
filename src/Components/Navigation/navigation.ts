@@ -5,10 +5,16 @@ import { Box } from "../../lib"
         element:"Div",
         attr:props.attr,
         children:[Box({
-            element:"img",
+            element:"a",
             attr:{
-                src:"/image2/arrow-left-circle.png"
-            }
+                href:props.href
+            },
+            children:Box({
+                element:"img",
+                attr:{
+                    src:"/image2/arrow-left-circle.png"
+                }
+            }),
         }),
         Box({
             element:"h1",

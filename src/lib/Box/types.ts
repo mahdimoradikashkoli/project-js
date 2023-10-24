@@ -1,5 +1,5 @@
 export type BoxProps={
     element:string,
     attr?:any,
-    children?:string | string[] | Element | Element[],
+    children?:number | string | string[] | Element | Element[],
 }

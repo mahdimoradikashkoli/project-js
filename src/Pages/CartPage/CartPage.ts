@@ -9,7 +9,7 @@ export const cartPage= () => {
         attr:{
             class:"p-8"
         },
-        children:[navigation({children:"Cart",attr:{class:"flex px-8 items-center justify-between"}}),
+        children:[navigation({children:"Cart",href:"/Singleproduct",attr:{class:"flex px-8 items-center justify-between"}}),
         Box({
             element:"Dive",
             attr:{
@@ -136,7 +136,7 @@ export const cartPage= () => {
         }),
         heder({
             attr:{
-                class:"flex mt-8 bg-white  justify-between border border-t-slate-300"
+                class:"flex mt-8 bg-white  justify-between border border-t-slate-300 px-2"
             },
             image1:"/image2/home (1).png",
             image2:"/image/bell.png",

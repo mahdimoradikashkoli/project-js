@@ -1,4 +1,4 @@
-import { heder, search} from "../../Components"
+import { heder, navbar, search} from "../../Components"
 import { product } from "../../Components"
 import { Box } from "../../lib"
 
@@ -8,10 +8,12 @@ export const home = () => {
         attr:{
             class:"p-8"
         },
-        children:[Box({
+        children:[
+            navbar({attr:{class:"flex items-center justify-between w-full bg-slate-300 p-2 rounded-xl font-medium"}}),
+            Box({
             element:"Div",
             attr:{
-                class:"flex justify-between"
+                class:"flex justify-between mt-4"
             },
             children:[Box({
                 element:"Div",
@@ -34,10 +36,16 @@ export const home = () => {
                 ]
             }),
             Box({
-                element:"img",
+                element:"a",
                 attr:{
-                    src:"/image/Ellipse 2.png"
-                }
+                    href:"/Account"
+                },
+                children:Box({
+                    element:"img",
+                    attr:{
+                        src:"/image/Ellipse 2.png"
+                    }
+                })
             })]
         }),
         search(),

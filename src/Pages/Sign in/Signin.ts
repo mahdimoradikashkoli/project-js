@@ -1,4 +1,4 @@
-import { button,textField} from "../../Components"
+import { button,navbar,textField} from "../../Components"
 import { validateEmail } from "../../Helpers"
 import { Box } from "../../lib"
 
@@ -26,7 +26,15 @@ export const signIn = () => {
         }
         
     }
-    return Box({
+    return [
+        Box({
+            element:"Div",
+            attr:{
+                class:"p-8",
+            },
+            children:navbar({attr:{class:"flex items-center justify-between w-full bg-slate-300 p-2 rounded-xl font-medium"}})
+        }),
+        Box({
         element:"Div",
         attr:{
             class:"flex flex-col mt-24 items-center"
@@ -52,6 +60,7 @@ export const signIn = () => {
                     } 
                     }),
                     textField({placeholder:"Password",
+                    type:"password",
                     onkeyup:(e)=>{
                         signInForm.password = e.target.value
                     }
@@ -65,7 +74,7 @@ export const signIn = () => {
             }),
             
         ]
-    })
+    })]
         
         
     

@@ -1,4 +1,5 @@
 export type propsNavigation ={
     children?:string,
-    attr?:any
+    attr?:any,
+    href?:string
 }
