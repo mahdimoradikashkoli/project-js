@@ -43,7 +43,7 @@ export const account = () => {
                                     
                                     class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                                 },
-                                children:"Name: "+parsGetUserInfo?.name??"name"
+                                children:"Name: "+parsGetUserInfo?.name??" "
                             }),
                         ]
                     }),
@@ -52,21 +52,21 @@ export const account = () => {
                             
                             class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                         },
-                        children:"Gender: "+parsGetUserInfo?.gender??"gender"
+                        children:"Gender: "+parsGetUserInfo?.gender??" "
                     }),
                     Box({element:"div",
                         attr:{
                             
                             class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                         },
-                        children:"Phone Number: "+parsGetUserInfo?.phoneNumber?? "phoneNumber"
+                        children:"Phone Number: "+parsGetUserInfo?.phoneNumber?? " "
                     }),
                     Box({element:"div",
                         attr:{
                             
                             class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                         },
-                        children:"Address: "+parsGetUserInfo?.address?? "Address"
+                        children:"Address: "+parsGetUserInfo?.address?? " "
                     }),
                     button({
                         children:"Edite",
