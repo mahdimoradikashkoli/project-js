@@ -11,16 +11,10 @@ export const signUP = () => {
 
     const handelSignUP = (e:Event)=>{
         e.preventDefault()
-        console.log(signUPForm)
-        if(!signUPForm.email ||
-            !validateEmail(signUPForm.email)){
-                return alert("email is invalid")
-            };
-
-            if(!signUPForm.password || !signUPForm.konfirmpassword ||
-                signUPForm.password !== signUPForm.konfirmpassword){
-                    return alert("password and konfirmpassword is not egual")
-                };
+        if(!signUPForm.email) return alert("Inter Email")
+        if(!validateEmail(signUPForm.email))return alert("email is invalid")
+        if(!signUPForm.password || !signUPForm.konfirmpassword) return alert("Inter The Password")
+        if(signUPForm.password !== signUPForm.konfirmpassword) return alert("password and konfirmpassword is not egual")
 
         const existUser = localStorage.getItem("user")
         const parsedExistUser =existUser? JSON.parse(existUser):null
@@ -39,14 +33,14 @@ export const signUP = () => {
     }
     return [
         Box({
-            element:"Div",
+            element:"div",
             attr:{
-                class:"p-8",
+                class:"p-8 flex flex-col items-center",
             },
-            children:navbar({attr:{class:"flex items-center justify-between w-full bg-slate-300 p-2 rounded-xl font-medium"}})
+            children:navbar({attr:{class:"w-full z-10 fixed top-0 flex items-center justify-between bg-slate-300 p-2 rounded-xl font-medium"}})
         }),
         Box({
-        element:"Div",
+        element:"div",
         attr:{
             class:"flex flex-col mt-24 items-center"
         },
@@ -93,4 +87,4 @@ export const signUP = () => {
     
 }
 
-// <Div class="bg-yellow-400 py-4 px-32 text-2xl mb-24 mt-24 font-bold"
+// <div class="bg-yellow-400 py-4 px-32 text-2xl mb-24 mt-24 font-bold"

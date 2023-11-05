@@ -1,3 +1,4 @@
+import { signUP } from ".."
 import { button,navbar,textField} from "../../Components"
 import { validateEmail } from "../../Helpers"
 import { Box } from "../../lib"
@@ -10,10 +11,8 @@ export const signIn = () => {
 
     const handelSignIn = (e:Event)=>{
         e.preventDefault()
-        if(!signInForm.email ||
-            !validateEmail(signInForm.email)){
-                return alert("email is invalid")
-            };
+        if(!signInForm.email) return alert("Inter The Email")
+        if(!validateEmail(signInForm.email)) return alert("email is invalid")
 
         const existUser = localStorage.getItem("user")
         const parsedExistUser =existUser? JSON.parse(existUser):null
@@ -28,14 +27,14 @@ export const signIn = () => {
     }
     return [
         Box({
-            element:"Div",
+            element:"div",
             attr:{
-                class:"p-8",
+                class:"p-8 flex flex-col items-center",
             },
-            children:navbar({attr:{class:"flex items-center justify-between w-full bg-slate-300 p-2 rounded-xl font-medium"}})
+            children:navbar({attr:{class:"w-full z-10 fixed top-0 flex items-center justify-between bg-slate-300 p-2 rounded-xl font-medium"}})
         }),
         Box({
-        element:"Div",
+        element:"div",
         attr:{
             class:"flex flex-col mt-24 items-center"
         },
@@ -69,7 +68,7 @@ export const signIn = () => {
                         element:"h1",
                         children:"Forgot password?"
                     }),
-                    button({children:"SignUp",})
+                    button({children:"Sign In",})
                 ]
             }),
             

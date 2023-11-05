@@ -1,22 +1,32 @@
-import { heder, navigation, textField } from "../../Components"
+import { button, footer, navigation} from "../../Components"
 import { Box } from "../../lib"
 
 export const account = () => {
-    return Box({
-        element:"Div",
+
+    const getUserInfo=localStorage.getItem("userinfo")
+    const parsGetUserInfo=getUserInfo?JSON.parse(getUserInfo):null
+    console.log(parsGetUserInfo)
+    return [Box({
+        element:"div",
         attr:{
             class:"p-8"
         },
         children:[
-            navigation({children:"Setting", attr:{class:"flex items-center justify-between"}}),
             Box({
-                element:"Div",
+                element:"div",
+                attr:{
+                    class:"flex flex-col items-center"
+                },
+                children:navigation({children:"Setting",  href:"/Setting", attr:{class:"flex fixed top-0 z-10 w-full py-2 px-3 bg-slate-300 rounded-lg items-center justify-between"}}),
+            }),
+            Box({
+                element:"div",
                 attr:{
                     class:"flex flex-col gap-3 mt-11"
                 },
                 children:[
                     Box({
-                        element:"Div",
+                        element:"div",
                         attr:{
                             class:"flex relative rounded-3xl bg-slate-300 w-80 p-1 border border-2 focus-within:border-yellow-500"
                         },
@@ -28,31 +38,59 @@ export const account = () => {
                                     src:"/image2/image 3.png"
                                 },
                             }),
-                            Box({
-                                element:"input",
+                            Box({element:"div",
                                 attr:{
-                                    placeholder:"Adimas",
-                                    class:"rounded-3xl bg-slate-300 w-80 p-4 text-lg outline-none"
+                                    
+                                    class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                                 },
-                                children:"Adimas"
-                            })
+                                children:"Name: "+parsGetUserInfo?.name??"name"
+                            }),
                         ]
                     }),
-                    textField({placeholder:"Mail"}),
-                    textField({placeholder:"Contact"}),
-                    textField({placeholder:"Address"}),
+                    Box({element:"div",
+                        attr:{
+                            
+                            class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
+                        },
+                        children:"Gender: "+parsGetUserInfo?.gender??"gender"
+                    }),
+                    Box({element:"div",
+                        attr:{
+                            
+                            class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
+                        },
+                        children:"Phone Number: "+parsGetUserInfo?.phoneNumber?? "phoneNumber"
+                    }),
+                    Box({element:"div",
+                        attr:{
+                            
+                            class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
+                        },
+                        children:"Address: "+parsGetUserInfo?.address?? "Address"
+                    }),
+                    button({
+                        children:"Edite",
+                        onClick:()=>{
+                            location.assign("/Edite")
+                        }
+                    })
                 ]
-            }),
-            heder({
-                attr:{
-                    class:"flex mt-80 bg-white  justify-between border border-t-slate-300"
-                },
-                image1:"/image2/home (1).png",
-                image2:"/image/bell.png",
-                image3:"/image2/shopping-cart (2).png",
-                image4:"/image2/settings (1).png"
-            })
-        ]
-    })
+            })]
+    }),
+    Box({
+        element:"div",
+        attr:{
+            class:"flex flex-col items-center"
+        },
+        children:footer({
+            attr:{
+                class:"flex fixed bottom-0 w-full bg-white justify-between border-t border-slate-300 px-2 rounded-lg shodow-lg"
+            },
+            image1:"/image2/home (1).png",
+            image2:"/image/bell.png",
+            image3:"/image2/shopping-cart (2).png",
+            image4:"/image2/settings (1).png"
+        })
+    })]
 }
-// <Div class="gap-3 text-black mt-80"
+// <div class="gap-3 text-black mt-80"

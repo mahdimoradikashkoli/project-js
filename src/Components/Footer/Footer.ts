@@ -1,26 +1,22 @@
 import { Box } from "../../lib"
+import {footerType} from "./type"
 
-type propsHeader={
-    attr?:any,
-    image1?:string,
-    image2?:string,
-    image3?:string,
-    image4?:string,
-}
-
-export const heder = (props:propsHeader) =>{
+export const footer = (props:footerType) =>{
     return Box({
-        element:"Div",
+        element:"div",
         attr:props.attr,
-        children:[Box({
-            element:"Div",
+        children:[
+            Box({
+            element:"div",
             attr:{
                 class:"flex justify-between gap-9 items-center "
             },
             children:[Box({
-                element:"a",
+                element:"buton",
                 attr:{
-                    href:"/Home"
+                    onClick:()=>{
+                        location.assign("/Home")
+                    }
                 },
                 children:Box({
                     element:"img",
@@ -30,9 +26,11 @@ export const heder = (props:propsHeader) =>{
                 }),
             }),
             Box({
-                element:"a",
+                element:"button",
                 attr:{
-                    href:"/"
+                    onClick:()=>{
+                        location.assign("/Home")
+                    }
                 },
                 children:Box({
                     element:"img",
@@ -51,14 +49,16 @@ export const heder = (props:propsHeader) =>{
             }
         }),
         Box({
-            element:"Div",
+            element:"div",
             attr:{
                 class:'flex justify-between gap-9 items-center'
             },
             children:[Box({
-                element:"a",
+                element:"button",
                 attr:{
-                    href:"/CartPage"
+                    onClick:()=>{
+                        location.assign("/CartPage")
+                    }
                 },
                 children:Box({
                     element:"img",
@@ -68,9 +68,11 @@ export const heder = (props:propsHeader) =>{
                 }),
             }),
             Box({
-                element:"a",
+                element:"button",
                 attr:{
-                    href:"/Setting"
+                    onClick:()=>{
+                        location.assign("/Setting")
+                    }
                 },
                 children:Box({
                     element:"img",

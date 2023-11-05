@@ -1,20 +1,19 @@
-import { search,product } from "../../Components"
-import { heder } from "../../Components/Header"
+import { search,product ,footer} from "../../Components"
 import { Box } from "../../lib"
 
 export const searchResult = () => {
     return Box({
-        element:'Div',
+        element:'div',
         attr:{
             class:"p-8"
         },
         children:[Box({
-            element:"Div",
+            element:"div",
             attr:{
                 class:"flex justify-between"
             },
             children:[Box({
-                element:"Div",
+                element:"div",
                 attr:{
                     class:"flex items-center gap-1"
                 },
@@ -42,7 +41,7 @@ export const searchResult = () => {
         }),
         search(),
         Box({
-            element:"Div",
+            element:"div",
             attr:{
                 class:"text-lg mt-5 mb-5 flex items-center",
             },
@@ -62,7 +61,7 @@ export const searchResult = () => {
             }),]
         }),
         Box({
-            element:"Div",
+            element:"div",
             attr:{
                 class:"flex flex-wrap gap-12",
             },
@@ -72,9 +71,9 @@ export const searchResult = () => {
             product({image:"/image/Rectangle 15.png", name:"Mango" , price:"$998 US"}),
             product({image:"/image/Rectangle 16.png", name:"Guava" , price:"$998 US"}),
             product({image:"/image/Rectangle 17.png", name:"Dragon Fruit" , price:"$998 US"})]
-        }),heder({
+        }),footer({
             attr:{
-                class:"flex relative -top-4 bg-white  justify-between border border-t-slate-300"
+                class:"flex fixed bottom-0 w-full bg-white justify-between border-t border-slate-300 px-2 rounded-lg shodow-lg"
             },
             image1:"/image/home.png",
             image2:"/image/bell.png",
@@ -83,5 +82,5 @@ export const searchResult = () => {
         })]
     })
 
-    //<Div class="bg-red-400"
+    //<div class="bg-red-400"
 }

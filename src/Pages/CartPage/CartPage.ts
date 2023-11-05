@@ -1,28 +1,50 @@
-import { button } from "../../Components"
-import { heder } from "../../Components/Header"
-import { navigation } from "../../Components/Navigation"
-import { Box } from "../../lib"
+import { button,navigation ,footer} from "../../Components"
+import { Box, renderer, } from "../../lib"
 
-export const cartPage= () => {
-    return Box({
-        element:"dive",
+export const cartPage=() => {
+
+    const jsonAdad=localStorage.getItem("adad")
+    const parsJsonAdad=jsonAdad?JSON.parse(jsonAdad):null
+
+    const priceJson=localStorage.getItem("price")
+    const parsPriceJson=priceJson?JSON.parse(priceJson):null
+
+    const getProduct=localStorage.getItem("product")
+    const parsGetProduct=getProduct?JSON.parse(getProduct):null
+
+    return [Box({
+        element:"div",
         attr:{
             class:"p-8"
         },
-        children:[navigation({children:"Cart",href:"/Singleproduct",attr:{class:"flex px-8 items-center justify-between"}}),
-        Box({
-            element:"Dive",
+        children:[
+            Box({
+                element:"Div",
+                attr:{
+                    class:"flex flex-col items-center"
+                },
+                children:navigation({children:"Cart",href:"/Singleproduct",attr:{class:"flex fixed top-0 w-full py-2 px-3 z-10 bg-slate-300 rounded-lg items-center justify-between"}}),
+            }),
+            Box({
+            element:"div",
             attr:{
+                id:"product",
                 class:"flex px-8 mt-11 items-center justify-between"
             },
             children:[Box({
-                element:"img",
+                element:"div",
                 attr:{
-                    src:"/image/Rectangle cart.png"
-                }
+                    class:'rounded-full w-20'
+                },
+                children:Box({
+                    element:"img",
+                    attr:{
+                        src:parsGetProduct
+                    }
+                })
             }),
             Box({
-                element:"Div",
+                element:"div",
                 attr:{
                     class:"flex text-base items-center gap-2"
                 },
@@ -31,49 +53,65 @@ export const cartPage= () => {
                     attr:{
                         class:"pb-1"
                     },
-                    children:"1kg"
+                    children:parsJsonAdad+"kg"
                 }),
                 Box({
                     element:"p",
-                    children:"$998 US"
+                    children:"$"+parsPriceJson+" US"
                 })]
             })]
         }),
         Box({
-            element:"Div",
+            element:"div",
             attr:{
                 class:"px-8"
             },
             children:Box({
-                element:"Div",
+                element:"div",
                 attr:{
                     class:"flex justify-between items-center px-16 max-w-lg bg-slate-300 h-20 rounded-xl px-8"
                 },
                 children:[
                     Box({
-                        element:"img",
+                        element:"button",
                         attr:{
-                            src:"/image2/edit.png"
-                        }
+                            
+                        },
+                        children:Box({
+                            element:"img",
+                            attr:{
+                                src:"/image2/edit.png"
+                            }
+                        })
                     }),
                     Box({
-                        element:"img",
+                        element:"button",
                         attr:{
-                            src:"/image2/trash-2.png"
-                        }
+                            onClick:()=>{
+                                renderer("product","")
+                                renderer("information","")
+                            }
+                        },
+                        children:Box({
+                            element:"img",
+                            attr:{
+                                src:"/image2/trash-2.png"
+                            }
+                        })
                     })
                 ]
             })
             
         }),
         Box({
-            element:"Div",
+            element:"div",
             attr:{
+                id:"information",
                 class:"px-10 mt-72"
             },
             children:[
                 Box({
-                    element:"Div",
+                    element:"div",
                     attr:{
                         class:"text-lg font-medium flex items-center justify-between"
                     },
@@ -84,12 +122,12 @@ export const cartPage= () => {
                         }),
                         Box({
                             element:"p",
-                            children:"$998 US"
+                            children:"$"+parsPriceJson+" US"
                         })
                     ]
                 }),
                 Box({
-                    element:"Div",
+                    element:"div",
                     attr:{
                         class:"text-lg font-medium flex items-center justify-between"
                     },
@@ -100,12 +138,12 @@ export const cartPage= () => {
                         }),
                         Box({
                             element:"p",
-                            children:"$7.511 US"
+                            children:"$10.00 US"
                         })
                     ]
                 }),
                 Box({
-                    element:"Div",
+                    element:"div",
                     attr:{
                         class:"mt-4 text-lg font-medium flex items-center justify-between"
                     },
@@ -116,27 +154,37 @@ export const cartPage= () => {
                         }),
                         Box({
                             element:"p",
-                            children:"$8.509 US"
+                            children:"$" +(parsPriceJson +10.00 )+" US"
                         })
                     ]
                 })
             ]
         }),
         Box({
-            element:"Div",
+            element:"div",
             attr:{
-                class:"-mt-20 px-8"
+                class:"-mt-20 flex flex-col items-center"
             },
             children:button({
+                onClick:()=>{
+                    location.assign("/Deliveryaddress")
+                },
                 attr:{
                     class:""
                 },
                 children:"Checkout"
             })
         }),
-        heder({
+        ]
+    }),
+    Box({
+        element:"div",
+        attr:{
+            class:"flex flex-col items-center"
+        },
+        children:footer({
             attr:{
-                class:"flex mt-8 bg-white  justify-between border border-t-slate-300 px-2"
+                class:"flex fixed bottom-0 w-full bg-white justify-between border-t border-slate-300 px-2 rounded-lg shodow-lg"
             },
             image1:"/image2/home (1).png",
             image2:"/image/bell.png",
@@ -144,8 +192,7 @@ export const cartPage= () => {
             image4:"/image/settings.png"
 
         })
-        ]
-    })
+    })]
 }
 
-//<Div class="mt-11 mt-7 w-96 h-14 p-8 text-lg mt- font-medium pb-1 max-w-xs h-20 px-16 rounded-xl mt-72"
+//<div class="mt-11 mt-7 w-96 h-14 w-16 rounded-full p-8 text-lg mt- font-medium pb-1 max-w-xs h-20 px-16 rounded-xl mt-72"

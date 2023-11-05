@@ -5,9 +5,11 @@ import { Box } from "../../lib"
         element:"Div",
         attr:props.attr,
         children:[Box({
-            element:"a",
+            element:"botton",
             attr:{
-                href:props.href
+                onClick:()=>{
+                    location.assign(props.href!)
+                }
             },
             children:Box({
                 element:"img",
@@ -24,10 +26,18 @@ import { Box } from "../../lib"
             children:props.children
         }),
         Box({
-            element:"img",
+            element:"button",
             attr:{
-                src:"/image2/search.png"
-            }
+                onclick:()=>{
+                    location.assign("/")
+                }
+            },
+            children:Box({
+                element:"img",
+                attr:{
+                    src:"/image2/search.png"
+                }
+            })
         })]
     })
 }

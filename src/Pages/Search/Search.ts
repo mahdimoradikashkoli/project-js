@@ -3,17 +3,17 @@ import { Box } from "../../lib"
 
 export const searchPage = () => {
     return Box({
-        element:'Div',
+        element:'div',
         attr:{
             class:"p-8"
         },
         children:[Box({
-            element:"Div",
+            element:"div",
             attr:{
                 class:"flex justify-between"
             },
             children:[Box({
-                element:"Div",
+                element:"div",
                 attr:{
                     class:"flex items-center gap-1"
                 },
@@ -33,10 +33,16 @@ export const searchPage = () => {
                 ]
             }),
             Box({
-                element:"img",
+                element:"a",
                 attr:{
-                    src:"/image/Ellipse 2.png"
-                }
+                    href:"/Account"
+                },
+                children:Box({
+                    element:"img",
+                    attr:{
+                        src:"/image/Ellipse 2.png"
+                    }
+                })
             })]
         }),
         search()]

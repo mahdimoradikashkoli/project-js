@@ -1,4 +1,4 @@
-import { account, cartPage, deliveryAddress, deliveryAdress2, home,order,orderReport,searchPage ,searchResult,settingOrders,signIn,signUP,singleProduct} from "../Pages";
+import { account, allProduct, cartPage, deliveryAddress, deliveryAdress2, edite, home,order,orderReport,searchPage ,searchResult,settingOrders,signIn,signUP,singleProduct} from "../Pages";
 import { setting } from "../Pages/Setting";
 
 export function route(){
@@ -29,6 +29,10 @@ export function route(){
             return account()
         case "/SettingOrders" :
             return settingOrders()
+        case "/AllProduct":
+            return allProduct()
+        case "/Edite":
+            return edite()
         default:
             return home()
     }

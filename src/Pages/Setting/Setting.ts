@@ -1,16 +1,22 @@
-import { heder, navigation} from "../../Components"
+import { footer, navigation} from "../../Components"
 import { Box } from "../../lib"
 
 export const setting = () => {
-    return Box({
-        element:"Div",
+    return [Box({
+        element:"div",
         attr:{
             class:"p-8"
         },
         children:[
-            navigation({children:"Setting", attr:{class:"flex items-center justify-between"}}),
             Box({
-                element:"Div",
+                element:"div",
+                attr:{
+                    class:"flex flex-col items-center"
+                },
+                children:navigation({children:"Setting", attr:{class:"flex fixed top-0 z-10 w-full py-2 px-3 bg-slate-300 rounded-lg items-center justify-between"}}),
+            }),
+            Box({
+                element:"div",
                 attr:{
                     class:"mt-11 flex flex-col gap-3"
                 },
@@ -18,6 +24,9 @@ export const setting = () => {
                     Box({
                         element:"button",
                         attr:{
+                            onClick:()=>{
+                                location.assign("/Account")
+                            },
                             class:"rounded-3xl bg-gray-200 w-80 pl-3 py-3 text-gray-400"
                         },
                         children:"Your Account"
@@ -25,6 +34,9 @@ export const setting = () => {
                     Box({
                         element:"button",
                         attr:{
+                            onClick:()=>{
+                                location.assign("/SettingOrders")
+                            },
                             class:"rounded-3xl bg-gray-200 w-80 pl-3 py-3 text-gray-400"
                         },
                         children:"Your Order"
@@ -37,20 +49,23 @@ export const setting = () => {
                         children:"Sign Out"
                     })
                 ]
-            }),
-            heder({
-                attr:{
-                    class:"flex mt-96 bg-white  justify-between border border-t-slate-300"
-                },
-                image1:"/image2/home (1).png",
-                image2:"/image/bell.png",
-                image3:"/image2/shopping-cart (2).png",
-                image4:"/image2/settings (1).png"
-            })
-            
-
-        ]
-    })
+            })]
+    }),
+    Box({
+        element:"div",
+        attr:{
+            class:"flex flex-col items-center"
+        },
+        children:footer({
+            attr:{
+                class:"flex fixed bottom-0 w-full bg-white justify-between border-t border-slate-300 px-2 rounded-lg shodow-lg"
+            },
+            image1:"/image2/home (1).png",
+            image2:"/image/bell.png",
+            image3:"/image2/shopping-cart (2).png",
+            image4:"/image2/settings (1).png"
+        })
+    })]
 }
 
-// <Div class="mt-11 mt-96"
+// <div class="mt-11 mt-96"
