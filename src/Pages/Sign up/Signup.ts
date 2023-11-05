@@ -1,5 +1,4 @@
-import { button } from "../../Components/Button"
-import { textField } from "../../Components/TextField"
+import { button ,textField} from "../../Components"
 import { validateEmail } from "../../Helpers"
 import { Box } from "../../lib"
 
@@ -31,9 +30,11 @@ export const signUP = () => {
             parsedExistUser.push(signUPForm);
             const jsonExistUser = JSON.stringify(parsedExistUser)
             localStorage.setItem("user" , jsonExistUser)
+            location.assign("/Signin")
         }else{
             const userToJson = JSON.stringify([signUPForm])
             localStorage.setItem("user" , userToJson)
+            location.assign("/Signin")
         }
     }
     return Box({

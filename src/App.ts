@@ -1,6 +1,6 @@
-import { layout } from "./Components/Layoit"
-import { signUP } from "./Pages/Sign up"
+import { layout } from "./Components"
+import { route } from "./router"
 
 export const App = () => {
-    return layout({children:signUP()})
+    return layout({children:route()})
 }
