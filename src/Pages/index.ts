@@ -9,3 +9,7 @@ export * from "./DeliveryAddress2"
 export * from "./CartPage"
 export * from "./Order"
 export * from './OrderReport'
+export * from "./Account"
+export * from "./SettingOrders"
+export * from "./AllProduct"
+export * from "./Edite"

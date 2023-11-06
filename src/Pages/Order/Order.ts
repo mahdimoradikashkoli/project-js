@@ -1,26 +1,50 @@
-import { button, heder, navigation } from "../../Components"
-import { Box } from "../../lib"
+import { button, footer, navigation } from "../../Components"
+import { Box, renderer } from "../../lib"
 
 export const order = () => {
-    return Box({
-        element:"dive",
+
+    const jsonAdad=localStorage.getItem("adad")
+    const parsJsonAdad=jsonAdad?JSON.parse(jsonAdad):null
+
+    const priceJson=localStorage.getItem("price")
+    const parsPriceJson=priceJson?JSON.parse(priceJson):null
+
+    const getProduct=localStorage.getItem("product")
+    const parsGetProduct=getProduct?JSON.parse(getProduct):null
+
+    return [Box({
+        element:"div",
         attr:{
             class:"p-8"
         },
-        children:[navigation({children:"Cart",attr:{class:"flex px-8 items-center justify-between"}}),
+        children:[
+            Box({
+                element:"Div",
+                attr:{
+                    class:"flex flex-col items-center"
+                },
+                children:navigation({children:"Cart", href:"/DeliveryAddress2", attr:{class:"flex fixed top-0 z-10 w-full py-2 px-3 bg-slate-300 rounded-lg items-center justify-between"}}),
+            }),
         Box({
-            element:"Dive",
+            element:"div",
             attr:{
+                id:"product",
                 class:"flex px-8 mt-11 items-center justify-between"
             },
             children:[Box({
-                element:"img",
+                element:"div",
                 attr:{
-                    src:"/image/Rectangle cart.png"
-                }
+                    class:'rounded-full w-20'
+                },
+                children:Box({
+                    element:"img",
+                    attr:{
+                        src:parsGetProduct
+                    }
+                })
             }),
             Box({
-                element:"Div",
+                element:"div",
                 attr:{
                     class:"flex text-base items-center gap-2"
                 },
@@ -29,62 +53,84 @@ export const order = () => {
                     attr:{
                         class:"pb-1"
                     },
-                    children:"1kg"
+                    children:parsJsonAdad+"kg"
                 }),
                 Box({
                     element:"p",
-                    children:"$998 US"
+                    children:"$" +parsPriceJson+"US"
                 })]
             })]
         }),
         Box({
-            element:"Div",
+            element:"div",
             attr:{
                 class:"px-8"
             },
             children:Box({
-                element:"Div",
+                element:"div",
                 attr:{
                     class:"flex justify-between items-center px-16 max-w-lg bg-slate-300 h-20 rounded-xl px-8"
                 },
                 children:[
                     Box({
-                        element:"img",
+                        element:"button",
                         attr:{
-                            src:"/image2/edit.png"
-                        }
+                            
+                        },
+                        children:Box({
+                            element:"img",
+                            attr:{
+                                src:"/image2/edit.png"
+                            }
+                        })
                     }),
                     Box({
-                        element:"img",
+                        element:"button",
                         attr:{
-                            src:"/image2/trash-2.png"
-                        }
+                            onClick:()=>{
+                                renderer("product","")
+                                renderer("information","")
+                            }
+                        },
+                        children:Box({
+                            element:"img",
+                            attr:{
+                                src:"/image2/trash-2.png"
+                            }
+                        })
                     })
                 ]
             })
             
         }),
         Box({
-            element:"button",
+            element:"div",
             attr:{
-                class:"px-12 mt-16"
+                class:"flex flex-col items-center"
             },
             children:Box({
-                element:"Div",
+                element:"button",
                 attr:{
-                    class:"w-80 rounded-3xl bg-slate-300 h-11 flex items-center justify-center"
+                    class:"px-12 mt-16"
                 },
-                children:'Add Cupon'
+                children:Box({
+                    element:"div",
+                    attr:{
+                        class:"w-80 rounded-3xl bg-slate-300 h-11 flex items-center justify-center"
+                    },
+                    children:'Add Cupon'
+                })
             })
         }),
         Box({
-            element:"Div",
+            element:"div",
             attr:{
+                id:"information",
                 class:"px-10 mt-44"
             },
             children:[
                 Box({
-                    element:"Div",
+                    element:"div",
                     attr:{
                         class:"text-lg font-medium flex items-center justify-between"
                     },
@@ -95,12 +141,12 @@ export const order = () => {
                         }),
                         Box({
                             element:"p",
-                            children:"$998 US"
+                            children:"$" +parsPriceJson+" US"
                         })
                     ]
                 }),
                 Box({
-                    element:"Div",
+                    element:"div",
                     attr:{
                         class:"text-lg font-medium flex items-center justify-between"
                     },
@@ -111,12 +157,12 @@ export const order = () => {
                         }),
                         Box({
                             element:"p",
-                            children:"$7.511 US"
+                            children:"$10.00 US"
                         })
                     ]
                 }),
                 Box({
-                    element:"Div",
+                    element:"div",
                     attr:{
                         class:"mt-4 text-lg font-medium flex items-center justify-between"
                     },
@@ -127,27 +173,33 @@ export const order = () => {
                         }),
                         Box({
                             element:"p",
-                            children:"$8.509 US"
+                            children:"$" +(parsPriceJson+10.00)+" US"
                         })
                     ]
                 })
             ]
         }),
         Box({
-            element:"Div",
+            element:"div",
             attr:{
-                class:"-mt-20 px-8"
+                class:"-mt-20 flex flex-col items-center"
             },
             children:button({
-                attr:{
-                    class:""
+                onClick:()=>{
+                    location.assign("/OrderReport")
                 },
                 children:"Order"
             })
-        }),
-        heder({
+        })]
+    }),
+    Box({
+        element:"div",
+        attr:{
+            class:"flex flex-col items-center"
+        },
+        children:footer({
             attr:{
-                class:"flex mt-8 bg-white  justify-between border border-t-slate-300"
+                class:"flex fixed bottom-0 w-full bg-white justify-between border-t border-slate-300 px-2 rounded-lg shodow-lg"
             },
             image1:"/image2/home (1).png",
             image2:"/image/bell.png",
@@ -155,8 +207,7 @@ export const order = () => {
             image4:"/image/settings.png"
 
         })
-        ]
-    })
+    })]
 }
 
-// <Div class="mt-44 6"
+// <div class="mt-44 6"
