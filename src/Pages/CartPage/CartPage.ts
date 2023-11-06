@@ -12,6 +12,9 @@ export const cartPage=() => {
     const getProduct=localStorage.getItem("product")
     const parsGetProduct=getProduct?JSON.parse(getProduct):null
 
+    const getProductName=localStorage.getItem("productname")
+    const parsProductName=getProductName?JSON.parse(getProductName):null
+
     return [Box({
         element:"div",
         attr:{
@@ -88,7 +91,8 @@ export const cartPage=() => {
                         element:"button",
                         attr:{
                             onClick:()=>{
-                                renderer("product","")
+                                renderer("product",Box({element:"p",attr:{class:"text-xl text-yellow-400 mb-3"},children:"The shopping cart is empty"}))
+                                localStorage.removeItem("product")
                                 renderer("information","")
                             }
                         },
@@ -118,7 +122,7 @@ export const cartPage=() => {
                     children:[
                         Box({
                             element:"h1",
-                            children:"Melon"
+                            children:parsProductName
                         }),
                         Box({
                             element:"p",
@@ -167,7 +171,13 @@ export const cartPage=() => {
             },
             children:button({
                 onClick:()=>{
-                    location.assign("/Deliveryaddress")
+                    const getProduct=localStorage.getItem("product")
+                    const parsGetProduct=getProduct?JSON.parse(getProduct):null
+                    if(parsGetProduct) {
+                        location.assign("/Deliveryaddress")
+                    }else{
+                        return alert("The shopping cart is empty")
+                    }
                 },
                 attr:{
                     class:""

@@ -2,6 +2,9 @@ import { footer } from "../../Components"
 import { Box } from "../../lib"
 
 export const orderReport = () => {
+
+    const getidproduct=localStorage.getItem("productid")
+    const parsIdProduct=getidproduct?JSON.parse(getidproduct):null
     return [Box({
         element:"div",
         attr:{
@@ -56,7 +59,7 @@ export const orderReport = () => {
                     attr:{
                         class:"text-center relative w-60 -top-40"
                     },
-                    children:"Order Place, Your Order Number is #399123"
+                    children:"Order Place, Your Order Number is #"+ parsIdProduct
                 })]
             })
         ]

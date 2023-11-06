@@ -1,4 +1,4 @@
-import { button, footer, navigation} from "../../Components"
+import { footer, navigation} from "../../Components"
 import { Box } from "../../lib"
 
 
@@ -73,12 +73,6 @@ export const account = () => {
                                 class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                             },
                             children:"Email: " +lastObgect?.email?? " "
-                        }),
-                        button({
-                            children:"Edite",
-                            onClick:()=>{
-                                location.assign("/Edite")
-                            }
                         })
                     ]
                 })]

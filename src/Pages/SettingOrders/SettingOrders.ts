@@ -6,6 +6,9 @@ export const settingOrders = () => {
     const priceJson=localStorage.getItem("price")
     const parsPriceJson=priceJson?JSON.parse(priceJson):null
 
+    const getidproduct=localStorage.getItem("productid")
+    const parsIdProduct=getidproduct?JSON.parse(getidproduct):null
+
     return [Box({
         element:"div",
         attr:{
@@ -51,7 +54,7 @@ export const settingOrders = () => {
                                         },
                                         children:[Box({
                                             element:"p",
-                                            children:"#399123"
+                                            children:"#"+parsIdProduct
                                         }),
                                         Box({
                                             element:"button",
@@ -111,7 +114,7 @@ export const settingOrders = () => {
                                     Box({
                                         element:"p",
                                         
-                                        children:"#557123"
+                                        children:"#"+parsIdProduct
                                     })
                                 ]
                             }),

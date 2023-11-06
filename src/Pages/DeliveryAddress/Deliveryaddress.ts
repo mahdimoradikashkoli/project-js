@@ -10,19 +10,23 @@ export const deliveryAddress= () => {
     }
 
     const handleCreateAddress=()=>{
-            // const existCustomer=localStorage.getItem("Customer")
-            // const parsExistCustomer=existCustomer?JSON.parse(existCustomer):null
-            // if(parsExistCustomer){
+        if(!address.fullName) return alert("Please enter the name")
+        if(!address.phoneNumber) return alert("Please enter the phoneNumber")
+        if(!address.streetAddress) return alert("Please enter the streetAddress")
+
+            const existCustomer=localStorage.getItem("Customer")
+            const parsExistCustomer=existCustomer?JSON.parse(existCustomer):null
+            if(parsExistCustomer){
                 
-            //     parsExistCustomer.push(address)
-            //     const existCustmerToJson=JSON.stringify(parsExistCustomer)
-            //     localStorage.setItem("Customer",existCustmerToJson)
-            //     location.assign("/DeliveryAddress2")
-            // }else{
-            //     const addressTojson=JSON.stringify([address])
-            //     localStorage.setItem("Customer",addressTojson)
+                parsExistCustomer.push(address)
+                const existCustmerToJson=JSON.stringify(parsExistCustomer)
+                localStorage.setItem("Customer",existCustmerToJson)
+                location.assign("/DeliveryAddress2")
+            }else{
+                const addressTojson=JSON.stringify([address])
+                localStorage.setItem("Customer",addressTojson)
                 
-            // } 
+            } 
             location.assign("/DeliveryAddress2")
             
     }
@@ -64,6 +68,9 @@ export const deliveryAddress= () => {
                         element:"button",
                         attr:{
                             onClick:()=>{
+                                if(!address.fullName) return alert("Please enter the name")
+                                if(!address.phoneNumber) return alert("Please enter the phoneNumber")
+                                if(!address.streetAddress) return alert("Please enter the streetAddress")
                                 location.assign("/DeliveryAddress2")
                             }
                         },

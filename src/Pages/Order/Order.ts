@@ -12,6 +12,9 @@ export const order = () => {
     const getProduct=localStorage.getItem("product")
     const parsGetProduct=getProduct?JSON.parse(getProduct):null
 
+    const getProductName=localStorage.getItem("productname")
+    const parsProductName=getProductName?JSON.parse(getProductName):null
+
     return [Box({
         element:"div",
         attr:{
@@ -88,7 +91,8 @@ export const order = () => {
                         element:"button",
                         attr:{
                             onClick:()=>{
-                                renderer("product","")
+                                renderer("product",Box({element:"p",attr:{class:"text-xl text-yellow-400 mb-3"},children:"The shopping cart is empty"}))
+                                localStorage.removeItem("product")
                                 renderer("information","")
                             }
                         },
@@ -137,7 +141,7 @@ export const order = () => {
                     children:[
                         Box({
                             element:"h1",
-                            children:"Melon"
+                            children:parsProductName
                         }),
                         Box({
                             element:"p",
@@ -186,7 +190,17 @@ export const order = () => {
             },
             children:button({
                 onClick:()=>{
-                    location.assign("/OrderReport")
+                    const getProduct=localStorage.getItem("product")
+                    const parsGetProduct=getProduct?JSON.parse(getProduct):null
+                    if(parsGetProduct) {
+                        location.assign("/OrderReport")
+                        const randomID=Math.floor(Math.random() * 10000)
+                        const randomIdToJson=JSON.stringify(randomID)
+                        localStorage.setItem("productid",randomIdToJson)
+                    }else{
+                        return alert("The shopping cart is empty")
+                    }
+                    
                 },
                 children:"Order"
             })

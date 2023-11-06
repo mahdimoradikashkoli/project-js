@@ -8,7 +8,13 @@ import { Box } from "../../lib"
             element:"botton",
             attr:{
                 onClick:()=>{
-                    location.assign(props.href!)
+                    const getProduct=localStorage.getItem("product")
+                    const parsGetProduct=getProduct?JSON.parse(getProduct):null
+                    if(parsGetProduct) {
+                        location.assign(props.href!)
+                    }else{
+                        location.assign("/")
+                    }
                 }
             },
             children:Box({
