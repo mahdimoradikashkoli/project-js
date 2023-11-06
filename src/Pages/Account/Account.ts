@@ -2,12 +2,11 @@ import { button, footer, navigation} from "../../Components"
 import { Box } from "../../lib"
 
 
-export const account = (props:{userInfoArrry:any}) => {
+export const account = () => {
 
-    // const getUserInfo=localStorage.getItem("userinfo")
-    // const parsGetUserInfo=getUserInfo?JSON.parse(getUserInfo):""
-    console.log(document.getElementById("account"))
-
+    const getUserInfo=localStorage.getItem("user")
+    const parsGetUserInfo=getUserInfo?JSON.parse(getUserInfo):null
+    const lastObgect=parsGetUserInfo[parsGetUserInfo.length - 1]
     return Box({
         element:"div",
         attr:{
@@ -50,7 +49,7 @@ export const account = (props:{userInfoArrry:any}) => {
                                         
                                         class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                                     },
-                                    children:props?.userInfoArrry[0]?.name
+                                    children:"Name: " +lastObgect?.name
                                 }),
                             ]
                         }),
@@ -59,21 +58,21 @@ export const account = (props:{userInfoArrry:any}) => {
                                 
                                 class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                             },
-                            children:props?.userInfoArrry[0]?.gender
+                            children:"Gender: " +lastObgect?.gender
                         }),
                         Box({element:"div",
                             attr:{
                                 
                                 class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                             },
-                            children:props?.userInfoArrry[0]?.phoneNumber
+                            children:"PhoneNumber: " +lastObgect?.phoneNumber
                         }),
                         Box({element:"div",
                             attr:{
                                 
                                 class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                             },
-                            children:props?.userInfoArrry[0]?.address
+                            children:"Email: " +lastObgect?.email
                         }),
                         button({
                             children:"Edite",
