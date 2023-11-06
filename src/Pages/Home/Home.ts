@@ -42,9 +42,18 @@ export const home = () => {
                 ]
             }),
             Box({
-                element:"a",
+                element:"button",
                 attr:{
-                    href:"/Account"
+                    onClick:()=>{
+                        const getUserInfo=localStorage.getItem("user")
+                        const parsGetUserInfo=getUserInfo?JSON.parse(getUserInfo):null
+                        if(!parsGetUserInfo){
+                            location.assign("/Signup") 
+                            return alert("Please register first") 
+                        }else{
+                            location.assign("/Account")
+                        }
+                    }
                 },
                 children:Box({
                     element:"img",
@@ -82,7 +91,7 @@ export const home = () => {
         Box({
             element:"div",
             attr:{
-                class:" flex flex-wrap gap-12 "
+                class:" flex flex-wrap gap-12"
             },
             children:[product({image:"/image/Rectangle 10.png", name:"Pineapple" , price:"100"})
             ,product({image:"/image/Rectangle 11.png", name:"Banana" , price:"200"})]

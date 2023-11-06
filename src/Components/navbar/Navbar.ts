@@ -1,5 +1,5 @@
 import { Box} from "../../lib"
-import {navbarProps} from "./type"
+import { navbarProps } from "./type"
 
 export const navbar = (props:navbarProps) => {
     return Box({

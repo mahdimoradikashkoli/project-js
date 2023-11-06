@@ -25,7 +25,15 @@ export const setting = () => {
                         element:"button",
                         attr:{
                             onClick:()=>{
-                                location.assign("/Account")
+                                const getUserInfo=localStorage.getItem("user")
+                                const parsGetUserInfo=getUserInfo?JSON.parse(getUserInfo):null
+                                if(!parsGetUserInfo){
+                                    location.assign("/Signup") 
+                                    return alert("Please register first") 
+                                    
+                                }else{
+                                    location.assign("/Account")
+                                }
                             },
                             class:"rounded-3xl bg-gray-200 w-80 pl-3 py-3 text-gray-400"
                         },

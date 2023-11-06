@@ -5,10 +5,10 @@ import { Box } from "../../lib"
 export const account = () => {
 
     const getUserInfo=localStorage.getItem("user")
-    const parsGetUserInfo=getUserInfo?JSON.parse(getUserInfo):null
+    const parsGetUserInfo=getUserInfo?JSON.parse(getUserInfo):" "
     const lastObgect=parsGetUserInfo[parsGetUserInfo.length - 1]
 
-        element:"div",
+        return Box({element:"div",
         attr:{
         },
         children:[Box({
@@ -49,7 +49,7 @@ export const account = () => {
                                         
                                         class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                                     },
-                                    children:"Name: " +lastObgect?.name
+                                    children:"Name: " +lastObgect?.name?? " "
                                 }),
                             ]
                         }),
@@ -58,21 +58,21 @@ export const account = () => {
                                 
                                 class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                             },
-                            children:"Gender: " +lastObgect?.gender
+                            children:"Gender: " +lastObgect?.gender?? " "
                         }),
                         Box({element:"div",
                             attr:{
                                 
                                 class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                             },
-                            children:"PhoneNumber: " +lastObgect?.phoneNumber
+                            children:"PhoneNumber: " +lastObgect?.phoneNumber?? " "
                         }),
                         Box({element:"div",
                             attr:{
                                 
                                 class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                             },
-                            children:"Email: " +lastObgect?.email
+                            children:"Email: " +lastObgect?.email?? " "
                         }),
                         button({
                             children:"Edite",
