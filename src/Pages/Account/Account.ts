@@ -7,7 +7,7 @@ export const account = () => {
     const getUserInfo=localStorage.getItem("user")
     const parsGetUserInfo=getUserInfo?JSON.parse(getUserInfo):null
     const lastObgect=parsGetUserInfo[parsGetUserInfo.length - 1]
-    return Box({
+
         element:"div",
         attr:{
         },
