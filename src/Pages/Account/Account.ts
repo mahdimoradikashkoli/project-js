@@ -3,9 +3,9 @@ import { Box } from "../../lib"
 
 export const account = () => {
 
-    const getUserInfo=localStorage.getItem("userinfo")
+    const getUserInfo=localStorage.getItem("user")
     const parsGetUserInfo=getUserInfo?JSON.parse(getUserInfo):null
-    console.log(parsGetUserInfo)
+    const lastObgect=parsGetUserInfo[parsGetUserInfo.length - 1]
     return [Box({
         element:"div",
         attr:{
@@ -43,7 +43,7 @@ export const account = () => {
                                     
                                     class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                                 },
-                                children:"Name: "+parsGetUserInfo?.name??" "
+                                children:"Name: "+lastObgect?.name
                             }),
                         ]
                     }),
@@ -52,21 +52,21 @@ export const account = () => {
                             
                             class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                         },
-                        children:"Gender: "+parsGetUserInfo?.gender??" "
+                        children:"Gender: "+lastObgect?.gender
                     }),
                     Box({element:"div",
                         attr:{
                             
                             class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                         },
-                        children:"Phone Number: "+parsGetUserInfo?.phoneNumber?? " "
+                        children:"Phone Number: "+lastObgect?.phoneNumber
                     }),
                     Box({element:"div",
                         attr:{
                             
                             class:'relative rounded-3xl bg-slate-300 w-80 p-5  text-lg'
                         },
-                        children:"Address: "+parsGetUserInfo?.address?? " "
+                        children:"Email: "+lastObgect?.email
                     }),
                     button({
                         children:"Edite",
