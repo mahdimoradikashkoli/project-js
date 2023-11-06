@@ -4,6 +4,9 @@ import { Box } from "../../lib"
 
 export const signUP = () => {
     const signUPForm={
+        name:'',
+        gender:"",
+        phoneNumber:"",
         email:"",
         password:"",
         konfirmpassword:""
@@ -11,6 +14,9 @@ export const signUP = () => {
 
     const handelSignUP = (e:Event)=>{
         e.preventDefault()
+        if(!signUPForm.name) return alert("please inter Name")
+        if(!signUPForm.gender) return alert("please inter Gender")
+        if(!signUPForm.phoneNumber) return alert("please inter PhoneNumber")
         if(!signUPForm.email) return alert("Inter Email")
         if(!validateEmail(signUPForm.email))return alert("email is invalid")
         if(!signUPForm.password || !signUPForm.konfirmpassword) return alert("Inter The Password")
@@ -19,7 +25,7 @@ export const signUP = () => {
         const existUser = localStorage.getItem("user")
         const parsedExistUser =existUser? JSON.parse(existUser):null
         if(parsedExistUser){
-            const existUser = parsedExistUser.find((user:typeof signUPForm) => user.email === signUPForm.email);
+            const existUser = parsedExistUser.find((user:typeof signUPForm) => user.email === signUPForm.email && user.name === signUPForm.name && user.phoneNumber == signUPForm.phoneNumber);
             if(existUser) return alert("user already exist")
             parsedExistUser.push(signUPForm);
             const jsonExistUser = JSON.stringify(parsedExistUser)
@@ -59,6 +65,19 @@ export const signUP = () => {
                     onsubmit:handelSignUP
                 },
                 children:[
+                    textField({placeholder:"Name" ,
+                    onkeyup:(e)=>{
+                        signUPForm.name=e.target.value
+                    } 
+                    }),textField({placeholder:"Gender" ,
+                    onkeyup:(e)=>{
+                        signUPForm.gender=e.target.value
+                    } 
+                    }),textField({placeholder:"PhoneNumber" ,
+                    onkeyup:(e)=>{
+                        signUPForm.phoneNumber=e.target.value
+                    } 
+                    }),
                     textField({placeholder:"Email" ,
                     onkeyup:(e)=>{
                         signUPForm.email=e.target.value
