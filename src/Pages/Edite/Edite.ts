@@ -1,7 +1,7 @@
 import { button, textField } from "../../Components"
 import { Box } from "../../lib"
 
-export const edite=()=>{
+export const edite=(props:{userInfoArrry:any})=>{
 
     const userInfo={
         name:"",
@@ -11,9 +11,11 @@ export const edite=()=>{
     }
 
     const handleSaveContact=()=>{
-        const userInfoToJson=JSON.stringify(userInfo)
-        localStorage.setItem("userinfo",userInfoToJson)
-        location.assign("/Account")
+        props.userInfoArrry.push(userInfo)
+        document.getElementsByClassName
+        // const userInfoToJson=JSON.stringify(userInfo)
+        // localStorage.setItem("userinfo",userInfoToJson)
+        // location.assign("/Account")
     }
     return Box({
         element:"div",

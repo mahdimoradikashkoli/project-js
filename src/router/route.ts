@@ -2,6 +2,9 @@ import { account, allProduct, cartPage, deliveryAddress, deliveryAdress2, edite,
 import { setting } from "../Pages/Setting";
 
 export function route(){
+
+    const userInfoArrry:any=[]
+    console.log(userInfoArrry)
     switch (location.pathname) {
         case "/Signup":
             return signUP();
@@ -26,13 +29,13 @@ export function route(){
         case "/Setting":
             return setting()
         case "/Account" :
-            return account()
+            return account({userInfoArrry})
         case "/SettingOrders" :
             return settingOrders()
         case "/AllProduct":
             return allProduct()
         case "/Edite":
-            return edite()
+            return edite({userInfoArrry})
         default:
             return home()
     }
