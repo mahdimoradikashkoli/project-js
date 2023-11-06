@@ -1,4 +1,5 @@
 import { button,heder } from "../../Components"
+import { navigation } from "../../Components/Navigation"
 import { Box } from "../../lib"
 
 export const singleProduct = () => {
@@ -7,31 +8,7 @@ export const singleProduct = () => {
         attr:{
             class:"p-8"
         },
-        children:[Box({
-            element:"Div",
-            attr:{
-                class:"flex items-center justify-between"
-            },
-            children:[Box({
-                element:"img",
-                attr:{
-                    src:"/image2/arrow-left-circle.png"
-                }
-            }),
-            Box({
-                element:"h1",
-                attr:{
-                    class:"font-bold text-yellow-500 text-2xl"
-                },
-                children:"Shop"
-            }),
-            Box({
-                element:"img",
-                attr:{
-                    src:"/image2/search.png"
-                }
-            })]
-        }),
+        children:[navigation({children:"Shop",attr:{class:"flex items-center justify-between"}}),
         Box({
             element:"Div",
             attr:{

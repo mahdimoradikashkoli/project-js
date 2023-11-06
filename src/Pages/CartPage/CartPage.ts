@@ -1,5 +1,6 @@
 import { button } from "../../Components"
 import { heder } from "../../Components/Header"
+import { navigation } from "../../Components/Navigation"
 import { Box } from "../../lib"
 
 export const cartPage= () => {
@@ -8,31 +9,7 @@ export const cartPage= () => {
         attr:{
             class:"p-8"
         },
-        children:[Box({
-            element:"Div",
-            attr:{
-                class:"flex px-8 items-center justify-between"
-            },
-            children:[Box({
-                element:"img",
-                attr:{
-                    src:"/image2/arrow-left-circle.png"
-                }
-            }),
-            Box({
-                element:"h1",
-                attr:{
-                    class:"font-bold text-yellow-500 text-2xl"
-                },
-                children:"Shop"
-            }),
-            Box({
-                element:"img",
-                attr:{
-                    src:"/image2/search.png"
-                }
-            })]
-        }),
+        children:[navigation({children:"Cart",attr:{class:"flex px-8 items-center justify-between"}}),
         Box({
             element:"Dive",
             attr:{
