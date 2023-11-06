@@ -7,3 +7,5 @@ export * from './SingleProduct'
 export * from "./DeliveryAddress"
 export * from "./DeliveryAddress2"
 export * from "./CartPage"
+export * from "./Order"
+export * from './OrderReport'
