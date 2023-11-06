@@ -11,8 +11,7 @@ export const textField = (props:textFieldProps) => {
     return Box({
         element:"input",
         attr:{
-            
-            class:"rounded-3xl bg-slate-300 w-80 p-5  text-lg",
+            class:"relative rounded-3xl bg-slate-300 w-80 p-5  text-lg",
             ...restprops
         }
     })

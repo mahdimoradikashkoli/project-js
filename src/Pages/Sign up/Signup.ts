@@ -1,5 +1,4 @@
-import { button } from "../../Components/Button"
-import { textField } from "../../Components/TextField"
+import { button ,navbar,textField} from "../../Components"
 import { validateEmail } from "../../Helpers"
 import { Box } from "../../lib"
 
@@ -12,16 +11,10 @@ export const signUP = () => {
 
     const handelSignUP = (e:Event)=>{
         e.preventDefault()
-        console.log(signUPForm)
-        if(!signUPForm.email ||
-            !validateEmail(signUPForm.email)){
-                return alert("email is invalid")
-            };
-
-            if(!signUPForm.password || !signUPForm.konfirmpassword ||
-                signUPForm.password !== signUPForm.konfirmpassword){
-                    return alert("password and konfirmpassword is not egual")
-                };
+        if(!signUPForm.email) return alert("Inter Email")
+        if(!validateEmail(signUPForm.email))return alert("email is invalid")
+        if(!signUPForm.password || !signUPForm.konfirmpassword) return alert("Inter The Password")
+        if(signUPForm.password !== signUPForm.konfirmpassword) return alert("password and konfirmpassword is not egual")
 
         const existUser = localStorage.getItem("user")
         const parsedExistUser =existUser? JSON.parse(existUser):null
@@ -38,8 +31,16 @@ export const signUP = () => {
             location.assign("/Signin")
         }
     }
-    return Box({
-        element:"Div",
+    return [
+        Box({
+            element:"div",
+            attr:{
+                class:"p-8 flex flex-col items-center",
+            },
+            children:navbar({attr:{class:"w-full z-10 fixed top-0 flex items-center justify-between bg-slate-300 p-2 rounded-xl font-medium"}})
+        }),
+        Box({
+        element:"div",
         attr:{
             class:"flex flex-col mt-24 items-center"
         },
@@ -64,11 +65,13 @@ export const signUP = () => {
                     } 
                     }),
                     textField({placeholder:"Password",
+                    type:"password",
                     onkeyup:(e)=>{
                         signUPForm.password = e.target.value
                     }
                     }),
                     textField({placeholder:"Konfirmation Password",
+                    type:"password",
                     onkeyup:(e)=>{
                         signUPForm.konfirmpassword = e.target.value
                     }
@@ -78,10 +81,10 @@ export const signUP = () => {
             }),
             
         ]
-    })
+    })]
         
         
     
 }
 
-// <Div class="bg-yellow-400 py-4 px-32 text-2xl mb-24 mt-24 font-bold"
+// <div class="bg-yellow-400 py-4 px-32 text-2xl mb-24 mt-24 font-bold"
