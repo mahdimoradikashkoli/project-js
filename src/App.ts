@@ -1,4 +1,4 @@
-import { layout } from "./Components/Layoit"
+import { layout } from "./Components"
 import { route } from "./router"
 
 export const App = () => {

@@ -1,4 +1,4 @@
-import { search } from "../../Components/SearchBox"
+import { search } from "../../Components"
 import { Box } from "../../lib"
 
 export const searchPage = () => {

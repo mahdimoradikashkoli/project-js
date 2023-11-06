@@ -1,10 +1,10 @@
-import { heder, search} from "../../Components"
-import { product } from "../../Components"
+import { search,product } from "../../Components"
+import { heder } from "../../Components/Header"
 import { Box } from "../../lib"
 
-export const home = () => {
+export const searchResult = () => {
     return Box({
-        element:"Div",
+        element:'Div',
         attr:{
             class:"p-8"
         },
@@ -42,26 +42,24 @@ export const home = () => {
         }),
         search(),
         Box({
-            element:"h1",
-            attr:{
-                class:"text-lg mt-5 mb-5",
-            },
-            children:"Popular"
-        }),
-        Box({
             element:"Div",
             attr:{
-                class:" flex flex-wrap gap-12 "
+                class:"text-lg mt-5 mb-5 flex items-center",
             },
-            children:[product({image:"/image/Rectangle 10.png", name:"Pineapple" , price:"$955 US"})
-            ,product({image:"/image/Rectangle 11.png", name:"Banana" , price:"$955 US"})]
-        }),
-        Box({
-            element:"h1",
-            attr:{
-                class:"text-lg mt-5 mb-5",
-            },
-            children:"Best Seller"
+            children:[Box({
+                element:"h1",
+                attr:{
+                    class:"text-lg mt-5 mb-5",
+                },
+                children:"Popular"
+            }),
+            Box({
+                element:"img",
+                attr:{
+                    class:"pt-2",
+                    src:"/image/chevron-down.png",
+                },
+            }),]
         }),
         Box({
             element:"Div",
@@ -71,9 +69,10 @@ export const home = () => {
             children:[product({image:"/image/Rectangle 12.png", name:"Green Grapes" , price:"$998 US"}),
             product({image:"/image/Rectangle 13 (1).png", name:"Grapes" , price:"$998 US"}),
             product({image:"/image/Rectangle 14.png", name:"Melon" , price:"$998 US"}),
-            product({image:"/image/Rectangle 15.png", name:"Mango" , price:"$998 US"})]
-        }),
-        heder({
+            product({image:"/image/Rectangle 15.png", name:"Mango" , price:"$998 US"}),
+            product({image:"/image/Rectangle 16.png", name:"Guava" , price:"$998 US"}),
+            product({image:"/image/Rectangle 17.png", name:"Dragon Fruit" , price:"$998 US"})]
+        }),heder({
             attr:{
                 class:"flex relative -top-4 bg-white  justify-between border border-t-slate-300"
             },
@@ -81,9 +80,8 @@ export const home = () => {
             image2:"/image/bell.png",
             image3:"/image/shopping-cart.png",
             image4:"/image/settings.png"
-        })
-        ]
+        })]
     })
-}
 
-// <Div class="m-5 flex-wrap relative -top-4 w-40 gap-9 pb-6 border-t-slate-800"
+    //<Div class="bg-red-400"
+}

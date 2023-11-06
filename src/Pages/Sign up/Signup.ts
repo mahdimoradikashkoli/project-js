@@ -1,5 +1,4 @@
-import { button } from "../../Components/Button"
-import { textField } from "../../Components/TextField"
+import { button ,textField} from "../../Components"
 import { validateEmail } from "../../Helpers"
 import { Box } from "../../lib"
 
