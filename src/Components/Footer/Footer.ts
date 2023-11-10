@@ -57,7 +57,13 @@ export const footer = (props:footerType) =>{
                 element:"button",
                 attr:{
                     onClick:()=>{
-                        location.assign("/CartPage")
+                      const getProduct=localStorage.getItem("product")
+                      const parsGetProduct=getProduct?JSON.parse(getProduct):null
+                        if(parsGetProduct) {
+                            location.assign("/CartPage")
+                        }else{
+                            return alert("The shopping cart is empty")
+                        }
                     }
                 },
                 children:Box({
