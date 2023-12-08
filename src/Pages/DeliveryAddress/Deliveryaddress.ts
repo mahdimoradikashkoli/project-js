@@ -21,29 +21,23 @@ export const deliveryAddress= () => {
                 parsExistCustomer.push(address)
                 const existCustmerToJson=JSON.stringify(parsExistCustomer)
                 localStorage.setItem("Customer",existCustmerToJson)
-                location.assign("/DeliveryAddress2")
+                location.assign("/productlayout/deliveryaddress2")
             }else{
                 const addressTojson=JSON.stringify([address])
                 localStorage.setItem("Customer",addressTojson)
                 
             } 
-            location.assign("/DeliveryAddress2")
+            location.assign("/productlayout/deliveryaddress2")
             
     }
     
-    return [Box({
+    return Box({
         element:"div",
         attr:{
             class:"p-8"
         },
         children:[
-            Box({
-                element:"div",
-                attr:{
-                    class:"flex flex-col items-center"
-                },
-                children:navigation({children:"Delivery Address",href:"/CartPage", attr:{class:"flex fixed top-0 z-10 py-2 px-3 bg-slate-300 rounded-lg w-full   items-center justify-between"}}),
-            }),
+           
             Box({
                 element:"div",
                 attr:{
@@ -54,7 +48,7 @@ export const deliveryAddress= () => {
                         element:"button",
                         attr:{
                             onClick:()=>{
-                                location.assign("/Deliveryaddress")
+                                location.assign("/productlayout/deliveryaddress")
                             }
                         },
                         children:Box({
@@ -71,7 +65,7 @@ export const deliveryAddress= () => {
                                 if(!address.fullName) return alert("Please enter the name")
                                 if(!address.phoneNumber) return alert("Please enter the phoneNumber")
                                 if(!address.streetAddress) return alert("Please enter the streetAddress")
-                                location.assign("/DeliveryAddress2")
+                                location.assign("/productlayout/deliveryaddress2")
                             }
                         },
                         children: Box({
@@ -106,23 +100,7 @@ export const deliveryAddress= () => {
             button({children:"Continue",
             onClick:handleCreateAddress})]
 
-    }),
-    Box({
-        element:"div",
-        attr:{
-            class:"flex flex-col items-center"
-        },
-        children:footer({
-            attr:{
-                class:"flex fixed bottom-0 w-full bg-white justify-between border-t border-slate-300 px-2 rounded-lg shodow-lg"
-            },
-            image1:"/image2/home (1).png",
-            image2:"/image/bell.png",
-            image3:"/image2/shopping-cart (1).png",
-            image4:"/image/settings.png"
-
-        })
-    })]
+    })
 }
 
 // <div class="text-xl gap-9  max-w-sm mt-12 h-20 mt-8 justify-evenly shadow-md"

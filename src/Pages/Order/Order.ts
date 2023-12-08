@@ -1,4 +1,4 @@
-import { button, footer, navigation } from "../../Components"
+import { button} from "../../Components"
 import { Box, renderer } from "../../lib"
 
 export const order = () => {
@@ -15,19 +15,13 @@ export const order = () => {
     const getProductName=localStorage.getItem("productname")
     const parsProductName=getProductName?JSON.parse(getProductName):null
 
-    return [Box({
+    return Box({
         element:"div",
         attr:{
             class:"p-8"
         },
         children:[
-            Box({
-                element:"Div",
-                attr:{
-                    class:"flex flex-col items-center"
-                },
-                children:navigation({children:"Cart", href:"/DeliveryAddress2", attr:{class:"flex fixed top-0 z-10 w-full py-2 px-3 bg-slate-300 rounded-lg items-center justify-between"}}),
-            }),
+            
         Box({
             element:"div",
             attr:{
@@ -193,7 +187,7 @@ export const order = () => {
                     const getProduct=localStorage.getItem("product")
                     const parsGetProduct=getProduct?JSON.parse(getProduct):null
                     if(parsGetProduct) {
-                        location.assign("/OrderReport")
+                        location.assign("/productlayout/orderreport")
                         const randomID=Math.floor(Math.random() * 10000)
                         const randomIdToJson=JSON.stringify(randomID)
                         localStorage.setItem("productid",randomIdToJson)
@@ -205,23 +199,7 @@ export const order = () => {
                 children:"Order"
             })
         })]
-    }),
-    Box({
-        element:"div",
-        attr:{
-            class:"flex flex-col items-center"
-        },
-        children:footer({
-            attr:{
-                class:"flex fixed bottom-0 w-full bg-white justify-between border-t border-slate-300 px-2 rounded-lg shodow-lg"
-            },
-            image1:"/image2/home (1).png",
-            image2:"/image/bell.png",
-            image3:"/image2/shopping-cart (1).png",
-            image4:"/image/settings.png"
-
-        })
-    })]
+    })
 }
 
 // <div class="mt-44 6"

@@ -15,20 +15,12 @@ export const cartPage=() => {
     const getProductName=localStorage.getItem("productname")
     const parsProductName=getProductName?JSON.parse(getProductName):null
 
-    return [Box({
+    return Box({
         element:"div",
         attr:{
             class:"p-8"
         },
-        children:[
-            Box({
-                element:"Div",
-                attr:{
-                    class:"flex flex-col items-center"
-                },
-                children:navigation({children:"Cart",href:"/Singleproduct",attr:{class:"flex fixed top-0 w-full py-2 px-3 z-10 bg-slate-300 rounded-lg items-center justify-between"}}),
-            }),
-            Box({
+        children:[ Box({
             element:"div",
             attr:{
                 id:"product",
@@ -174,7 +166,7 @@ export const cartPage=() => {
                     const getProduct=localStorage.getItem("product")
                     const parsGetProduct=getProduct?JSON.parse(getProduct):null
                     if(parsGetProduct) {
-                        location.assign("/Deliveryaddress")
+                        location.assign("/productlayout/deliveryaddress")
                     }else{
                         return alert("The shopping cart is empty")
                     }
@@ -186,23 +178,8 @@ export const cartPage=() => {
             })
         }),
         ]
-    }),
-    Box({
-        element:"div",
-        attr:{
-            class:"flex flex-col items-center"
-        },
-        children:footer({
-            attr:{
-                class:"flex fixed bottom-0 w-full bg-white justify-between border-t border-slate-300 px-2 rounded-lg shodow-lg"
-            },
-            image1:"/image2/home (1).png",
-            image2:"/image/bell.png",
-            image3:"/image2/shopping-cart (1).png",
-            image4:"/image/settings.png"
-
-        })
-    })]
+    })
+    
 }
 
 //<div class="mt-11 mt-7 w-96 h-14 w-16 rounded-full p-8 text-lg mt- font-medium pb-1 max-w-xs h-20 px-16 rounded-xl mt-72"

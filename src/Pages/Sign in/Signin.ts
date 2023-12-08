@@ -1,5 +1,4 @@
-import { signUP } from ".."
-import { button,navbar,textField} from "../../Components"
+import { button,textField} from "../../Components"
 import { validateEmail } from "../../Helpers"
 import { Box } from "../../lib"
 
@@ -25,15 +24,7 @@ export const signIn = () => {
         }
         
     }
-    return [
-        Box({
-            element:"div",
-            attr:{
-                class:"p-8 flex flex-col items-center",
-            },
-            children:navbar({attr:{class:"w-full z-10 fixed top-0 flex items-center justify-between bg-slate-300 p-2 rounded-xl font-medium"}})
-        }),
-        Box({
+    return  Box({
         element:"div",
         attr:{
             class:"flex flex-col mt-24 items-center"
@@ -73,7 +64,7 @@ export const signIn = () => {
             }),
             
         ]
-    })]
+    })
         
         
     

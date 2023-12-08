@@ -1,4 +1,4 @@
-import { button,footer ,navigation} from "../../Components"
+import { button,footer } from "../../Components"
 import { Box,renderer } from "../../lib"
 
 
@@ -57,7 +57,7 @@ export const singleProduct = () => {
     const handelSingleProductPage=()=>{
         decrease()
         increase()
-        location.assign("/CartPage")
+        location.assign("/productlayout/cartpage")
     }
     
     return [Box({
@@ -66,13 +66,6 @@ export const singleProduct = () => {
             class:"p-8"
         },
         children:[
-            Box({
-                element:"div",
-                attr:{
-                    class:"flex flex-col items-center"
-                },
-                children:navigation({children:"Shop",attr:{class:"fixed top-0 z-10 w-full py-2 px-3 bg-slate-300 rounded-lg flex items-center justify-between"},href:"/Home"}),
-            }),
             Box({
             element:"div",
             attr:{
@@ -147,22 +140,7 @@ export const singleProduct = () => {
         onClick:handelSingleProductPage}),
         ]
     }),
-    Box({
-    element:"div",
-    attr:{
-        class:"flex flex-col items-center"
-    },
-    children:footer({
-        attr:{
-            class:"flex fixed bottom-0 w-full bg-white justify-between border-t border-slate-300 px-2 rounded-lg shodow-lg"
-        },
-        image1:"/image2/home (1).png",
-        image2:"/image/bell.png",
-        image3:"/image2/shopping-cart (1).png",
-        image4:"/image/settings.png"
-
-    })
-})]
+    ]
     
     
 }

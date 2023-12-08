@@ -15,7 +15,7 @@ export const footer = (props:footerType) =>{
                 element:"buton",
                 attr:{
                     onClick:()=>{
-                        location.assign("/Home")
+                        location.assign("/")
                     }
                 },
                 children:Box({
@@ -29,7 +29,7 @@ export const footer = (props:footerType) =>{
                 element:"button",
                 attr:{
                     onClick:()=>{
-                        location.assign("/Home")
+                        location.assign("/")
                     }
                 },
                 children:Box({
@@ -60,7 +60,7 @@ export const footer = (props:footerType) =>{
                       const getProduct=localStorage.getItem("product")
                       const parsGetProduct=getProduct?JSON.parse(getProduct):null
                         if(parsGetProduct) {
-                            location.assign("/CartPage")
+                            location.assign("/productlayout/order")
                         }else{
                             return alert("The shopping cart is empty")
                         }
@@ -77,7 +77,7 @@ export const footer = (props:footerType) =>{
                 element:"button",
                 attr:{
                     onClick:()=>{
-                        location.assign("/Setting")
+                        location.assign("/productlayout/setting")
                     }
                 },
                 children:Box({

@@ -1,20 +1,14 @@
-import { footer, navigation, product } from "../../Components"
+import {  product } from "../../Components"
 import { Box } from "../../lib"
 
 export const allProduct= () => {
-    return [Box({
+    return Box({
         element:"div",
         attr:{
             class:"p-8"
         },
         children:[
-            Box({
-                element:"div",
-                attr:{
-                    class:"flex flex-col items-center"
-                },
-                children:navigation({children:"All Product",attr:{class:"flex fixed top-0 z-10 w-full py-2 px-3 bg-slate-300 rounded-lg items-center justify-between"},href:"/Home"}),
-            }),
+            
             Box({
                 element:"div",
                 attr:{
@@ -33,20 +27,6 @@ export const allProduct= () => {
                 ]
             })
         ]
-    }),
-    Box({
-        element:"div",
-        attr:{
-            class:"flex flex-col items-center"
-        },
-        children:footer({
-            attr:{
-                class:"flex fixed bottom-0 w-full bg-white justify-between border-t border-slate-300 px-2 rounded-lg shodow-lg"
-            },
-            image1:"/image/home.png",
-            image2:"/image/bell.png",
-            image3:"/image/shopping-cart.png",
-            image4:"/image/settings.png"
-        })
-    })]
+    })
+    
 }

@@ -1,45 +1,14 @@
-import { button, footer} from "../../Components"
+import { button} from "../../Components"
 import { Box } from "../../lib"
 
 export const deliveryAdress2 = () => {
-    return [Box({
+    return Box({
         element:"div",
         attr:{
             class:"p-8"
         },
         children:[
-            Box({
-                element:"div",
-                attr:{
-                    class:"flex flex-col items-center"
-                },
-                children:Box({
-                    element:"div",
-                    attr:{
-                        class:"flex fixed top-0 w-full py-2 px-3 bg-slate-300 rounded-lg z-10 items-center"
-                    },
-                    children:[Box({
-                        element:"a",
-                        attr:{
-                            href:"/Deliveryaddress"
-                        },
-                        children:Box({
-                            element:"img",
-                            attr:{
-                                src:"/image2/arrow-left-circle.png"
-                            }
-                        })
-                    }),
-                    Box({
-                        element:"h1",
-                        attr:{
-                            class:"ml-11 font-bold text-yellow-500 text-xl"
-                        },
-                        children:"Delivery Address"
-                    })
-                    ]
-                }),
-            }),
+            
             Box({
                 element:"div",
                 attr:{
@@ -50,7 +19,7 @@ export const deliveryAdress2 = () => {
                         element:"button",
                         attr:{
                             onClick:()=>{
-                                location.assign("/Deliveryaddress")
+                                location.assign("/productlayout/deliveryaddress")
                             }
                         },
                         children:Box({
@@ -64,7 +33,7 @@ export const deliveryAdress2 = () => {
                         element:"button",
                         attr:{
                             onClick:()=>{
-                                location.assign("/DeliveryAddress2")
+                                location.assign("/productlayout/deliveryaddress2")
                             }
                         },
                         children:Box({
@@ -109,25 +78,9 @@ export const deliveryAdress2 = () => {
                 })
                 ]
             }),
-            button({children:"Continue",onClick:()=>{location.assign("/Order")}})]
+            button({children:"Continue",onClick:()=>{location.assign("/productlayout/order")}})]
 
-    }),
-    Box({
-        element:"div",
-        attr:{
-            class:"flex flex-col items-center"
-        },
-        children:footer({
-            attr:{
-                class:"flex fixed bottom-0 w-full bg-white justify-between border-t border-slate-300 px-2 rounded-lg shodow-lg"
-            },
-            image1:"/image2/home (1).png",
-            image2:"/image/bell.png",
-            image3:"/image2/shopping-cart (2).png",
-            image4:"/image/settings.png"
-
-        })
-    })]
+    })
 }
 
 // <div class="max-w-sm h-64 bg-slate-400 text-yellow-400 ml-11"

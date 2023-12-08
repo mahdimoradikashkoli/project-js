@@ -1,4 +1,3 @@
-import { footer, navigation } from "../../Components"
 import { Box } from "../../lib"
 
 export const settingOrders = () => {
@@ -7,21 +6,15 @@ export const settingOrders = () => {
     const parsPriceJson=priceJson?JSON.parse(priceJson):null
 
     const getidproduct=localStorage.getItem("productid")
-    const parsIdProduct=getidproduct?JSON.parse(getidproduct):null
+    const parsIdProduct=getidproduct?JSON.parse(getidproduct):"product not exist"
 
-    return [Box({
+    return Box({
         element:"div",
         attr:{
             class:"p-8"
         },
         children:[
-            Box({
-                element:"div",
-                attr:{
-                    class:"flex flex-col items-center"
-                },
-                children:navigation({children:"Setting", href:"/Setting" ,attr:{class:"flex fixed top-0 z-10 w-full py-2 px-3 bg-slate-300 rounded-lg items-center justify-between"}}),
-            }),
+            
             Box({
                 element:"div",
                 attr:{
@@ -122,22 +115,7 @@ export const settingOrders = () => {
                     })
                 ]
             })]
-    }),
-    Box({
-        element:"div",
-        attr:{
-            class:"flex flex-col items-center"
-        },
-        children:footer({
-            attr:{
-                class:"flex fixed bottom-0 w-full bg-white justify-between border-t border-slate-300 px-2 rounded-lg shodow-lg"
-            },
-            image1:"/image2/home (1).png",
-            image2:"/image/bell.png",
-            image3:"/image2/shopping-cart (2).png",
-            image4:"/image2/settings (1).png"
-        })
-    })]
+    })
 }
 
 // <div class="w-80 h-36 p-6 items-end text-lg h-16 gap-5 mt-96 font-medium"

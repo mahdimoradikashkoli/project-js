@@ -16,7 +16,7 @@ export const product = (props:productType) => {
         const productPriceToJson=JSON.stringify(productPrice)
         localStorage.setItem("productprice",productPriceToJson)
 
-        location.assign("/Singleproduct")
+        location.assign("/productlayout/singleproduct")
     };
     return Box({
         element:"Div",
